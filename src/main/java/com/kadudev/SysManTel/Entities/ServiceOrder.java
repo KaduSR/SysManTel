@@ -79,14 +79,6 @@ public class ServiceOrder {
         this.solutionDescription = solutionDescription;
     }
 
-    public ServiceOrderRole getServiceOrderRole() {
-        return serviceOrderRole;
-    }
-
-    public void setServiceOrderRole(ServiceOrderRole serviceOrderRole) {
-        this.serviceOrderRole = serviceOrderRole;
-    }
-
     public String getTechnicalNotes() {
         return technicalNotes;
     }
@@ -141,6 +133,13 @@ public class ServiceOrder {
 
     public void setServiceType(ServiceType serviceType) {
         this.serviceType = serviceType;
+    }
+
+    public ServiceOrderRole getStatus() {
+        return status;
+    }
+    public void setStatus(ServiceOrderRole status) {
+        this.status = status;
     }
 
 }
