@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,8 +27,9 @@ public class ServiceOrder {
     @Column(nullable = false)
     private String solutionDescription;
 
-    @Column(nullable = false)
-    private String status;
+    @JoinColumn(name = "serviceorderrole_id")
+    @Enumerated(EnumType.STRING)
+    private ServiceOrderRole serviceOrderRole;
 
     @Column(nullable = false)
     private String technicalNotes;
@@ -34,19 +37,23 @@ public class ServiceOrder {
     @Column(nullable = false)
     private LocalDateTime openingDate;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDateTime closingDate;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDateTime scheduledDateTime;
 
-    @JoinColumn(name = "customerContractNumber")
+    @JoinColumn(name = "customer_id")
     @ManyToOne
     private Customer customer;
 
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     @ManyToOne
-    private User user;
+    private User technician;
+
+    @JoinColumn(name = "serviceTypy_id")
+    @ManyToOne
+    private ServiceType serviceType;
 
     public Long getId() {
         return id;
@@ -72,12 +79,12 @@ public class ServiceOrder {
         this.solutionDescription = solutionDescription;
     }
 
-    public String getStatus() {
-        return status;
+    public ServiceOrderRole getServiceOrderRole() {
+        return serviceOrderRole;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setServiceOrderRole(ServiceOrderRole serviceOrderRole) {
+        this.serviceOrderRole = serviceOrderRole;
     }
 
     public String getTechnicalNotes() {
@@ -119,12 +126,23 @@ public class ServiceOrder {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-    public User getUser() {
-        return user;
+
+    public User getTechnician() {
+        return technician;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setTechnician(User technician) {
+        this.technician = technician;
     }
+    public ServiceType getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
+    }
+
+
+
 
 }

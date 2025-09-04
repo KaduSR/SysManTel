@@ -113,9 +113,4 @@ public class Customer {
         this.occupation = occupation;
     }
 
-    // Getters and Setters
-
-    
-
-
 }
