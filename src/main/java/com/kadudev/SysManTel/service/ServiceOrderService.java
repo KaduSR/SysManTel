@@ -1,4 +1,4 @@
-package com.kadudev.SysManTel.service;
+package com.kadudev.SysManTel.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kadudev.SysManTel.Entities.ServiceOrder;
 import com.kadudev.SysManTel.Entities.ServiceOrderRole;
-import com.kadudev.SysManTel.repository.ServiceOrderRepository;
+import com.kadudev.SysManTel.Repository.ServiceOrderRepository;
 
 @Service
 public class ServiceOrderService {
@@ -34,6 +34,17 @@ public class ServiceOrderService {
 
     public void deleteById(Long id) {
         serviceOrderRepository.deleteById(id);
+    }
+
+    public ServiceOrder update(Long id, ServiceOrder serviceOrder) {
+        ServiceOrder existingOrder = findById(id);
+        existingOrder.setCustomer(serviceOrder.getCustomer());
+        existingOrder.setProblemDescription(serviceOrder.getProblemDescription());
+        existingOrder.setSolutionDescription(serviceOrder.getSolutionDescription());
+        existingOrder.setStatus(serviceOrder.getStatus());
+        existingOrder.setClosingDate(serviceOrder.getClosingDate());
+        existingOrder.setTechnician(serviceOrder.getTechnician());
+        return serviceOrderRepository.save(existingOrder);
     }
 
 }

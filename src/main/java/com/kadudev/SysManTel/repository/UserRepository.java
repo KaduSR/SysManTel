@@ -1,4 +1,4 @@
-package com.kadudev.SysManTel.repository;
+package com.kadudev.SysManTel.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
