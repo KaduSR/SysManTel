@@ -24,7 +24,7 @@ public class ServiceOrderService {
         return serviceOrderRepository.findById(id).orElse(null);
     }
 
-    public ServiceOrder save(ServiceOrder serviceOrder) {4
+    public ServiceOrder save(ServiceOrder serviceOrder) {
         if (serviceOrder.getId() == null){
             serviceOrder.setStatus(ServiceOrderRole.PENDING);
             serviceOrder.setOpeningDate(LocalDateTime.now());
