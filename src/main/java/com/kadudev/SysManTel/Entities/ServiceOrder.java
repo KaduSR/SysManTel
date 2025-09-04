@@ -27,9 +27,9 @@ public class ServiceOrder {
     @Column(nullable = false)
     private String solutionDescription;
 
-    @JoinColumn(name = "serviceorderrole_id")
+    @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private ServiceOrderRole serviceOrderRole;
+    private ServiceOrderRole status;
 
     @Column(nullable = false)
     private String technicalNotes;
@@ -51,7 +51,7 @@ public class ServiceOrder {
     @ManyToOne
     private User technician;
 
-    @JoinColumn(name = "serviceTypy_id")
+    @JoinColumn(name = "serviceType_id")
     @ManyToOne
     private ServiceType serviceType;
 
@@ -134,6 +134,7 @@ public class ServiceOrder {
     public void setTechnician(User technician) {
         this.technician = technician;
     }
+
     public ServiceType getServiceType() {
         return serviceType;
     }
@@ -141,8 +142,5 @@ public class ServiceOrder {
     public void setServiceType(ServiceType serviceType) {
         this.serviceType = serviceType;
     }
-
-
-
 
 }
