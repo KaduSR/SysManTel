@@ -2,6 +2,8 @@ package com.kadudev.SysManTel.Entities;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -34,12 +36,14 @@ public class ServiceOrder {
     @Column(nullable = false)
     private String technicalNotes;
 
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(nullable = false)
     private LocalDateTime openingDate;
 
     @Column(nullable = true)
     private LocalDateTime closingDate;
 
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
     @Column(nullable = true)
     private LocalDateTime scheduledDateTime;
 
