@@ -33,14 +33,10 @@ A API é a fundação deste sistema, responsável por toda a lógica de negócio
 
 ## Modelo de Dados
 O sistema é modelado em quatro entidades principais:
-
-User: Representa os funcionários que usam o sistema, com papéis de MANAGER ou TECHNICIAN.
-
-Customer: Armazena os dados dos clientes da empresa.
-
-ServiceType: Um catálogo dos tipos de serviço oferecidos (ex: Instalação, Reparo).
-
-ServiceOrder: A entidade central que representa um chamado ou ordem de serviço, conectando um Customer, um User (técnico) e um ServiceType.
+- **User:** Representa os funcionários que usam o sistema...
+- **Customer:** Armazena os dados dos clientes...
+- **ServiceType:** Um catálogo dos tipos de serviço...
+- **ServiceOrder:** A entidade central que representa um chamado...
 
 ## Estrutura do Projeto
 ```bash
@@ -112,14 +108,14 @@ A seguir, a documentação dos principais endpoints disponíveis
 | PUT    | /servicetypes/{id} | Atualiza os dados de um tipo de serviço existente.
 | DELETE | /servicetypes/{id} | Remove um tipo de serviço pelo seu ID. |
 
-### **Ordens de Serviço**  (/serviceorders)
+### **Ordens de Serviço**  (/service-orders)
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
-| GET    | /serviceorders | Retorna a lista de todas as ordens de serviço. |
-| GET    | /serviceorders/{id} | Busca uma ordem de serviço pelo seu ID. |
-| POST   | /serviceorders | Cria uma nova ordem de serviço. |
-| PUT    | /serviceorders/{id} | Atualiza os dados de uma ordem de serviço existente. |
-| DELETE | /serviceorders/{id} | Remove uma ordem de serviço pelo seu ID.
+| GET    | /service-orders | Retorna a lista de todas as ordens de serviço. |
+| GET    | /service-orders/{id} | Busca uma ordem de serviço pelo seu ID. |
+| POST   | /service-orders | Cria uma nova ordem de serviço. |
+| PUT    | /service-orders/{id} | Atualiza os dados de uma ordem de serviço existente. |
+| DELETE | /service-orders/{id} | Remove uma ordem de serviço pelo seu ID.
 
 ## Como Executar o Projeto
 
